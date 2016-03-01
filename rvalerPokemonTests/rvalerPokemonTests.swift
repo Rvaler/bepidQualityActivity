@@ -7,6 +7,8 @@
 //
 
 import XCTest
+import Alamofire
+import SwiftyJSON
 @testable import rvalerPokemon
 
 class rvalerPokemonTests: XCTestCase {
@@ -21,9 +23,46 @@ class rvalerPokemonTests: XCTestCase {
         super.tearDown()
     }
     
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+    func testLoginFailed() {
+        let exp = expectationWithDescription("waitLogin")
+        Alamofire.request(.GET, "http://server03.local:60080/login?user=uuu&password=666", parameters: nil, encoding: .URL).responseJSON { (result) -> Void in
+            
+            if let jsonData = result.data {
+                let json = JSON(data: jsonData)
+                XCTAssert(json["response"] == "false")
+                if json["response"] == "true" {
+                    print("Login Done")
+                } else {
+                    print("Bad login")
+                }
+            }
+            exp.fulfill()
+        }
+        
+        waitForExpectationsWithTimeout(10) { (err) -> Void in
+            print("Timeout error")
+        }
+    }
+    
+    func testLoginSuccessful(){
+        let exp = expectationWithDescription("waitLogin")
+        Alamofire.request(.GET, "http://server03.local:60080/login?user=ash&password=mistyS2", parameters: nil, encoding: .URL).responseJSON { (result) -> Void in
+            
+            if let jsonData = result.data {
+                let json = JSON(data: jsonData)
+                XCTAssert(json["response"] == "true")
+                if json["response"] == "true" {
+                    print("Login Done")
+                } else {
+                    print("Bad login")
+                }
+            }
+            exp.fulfill()
+        }
+        
+        waitForExpectationsWithTimeout(10) { (err) -> Void in
+            print("Timeout error")
+        }
     }
     
     func testPerformanceExample() {
@@ -31,9 +70,5 @@ class rvalerPokemonTests: XCTestCase {
         self.measureBlock {
             // Put the code you want to measure the time of here.
         }
-    }
-    
-    func testLoginSuccessful(){
-        
     }
 }
