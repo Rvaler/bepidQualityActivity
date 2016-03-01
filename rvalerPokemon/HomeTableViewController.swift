@@ -46,7 +46,7 @@ class HomeTableViewController: UITableViewController {
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         if indexPath.row != 0{
-            self.performSegueWithIdentifier("segueFromHomeToPokemonDetails", sender: indexPath.row - 1)
+            self.performSegueWithIdentifier("segueFromHomeToPokemonDetails", sender: indexPath.row)
         }
     }
 

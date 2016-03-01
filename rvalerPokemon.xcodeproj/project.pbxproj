@@ -20,6 +20,7 @@
 		54D2276C1C85238100933BA6 /* HomeTrainerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54D2276B1C85238100933BA6 /* HomeTrainerTableViewCell.swift */; };
 		54D2276E1C85257500933BA6 /* HomePokemonTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54D2276D1C85257500933BA6 /* HomePokemonTableViewCell.swift */; };
 		54D227701C85269A00933BA6 /* PokemonDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54D2276F1C85269A00933BA6 /* PokemonDetailsViewController.swift */; };
+		54D3F47A1C8617B300264BFC /* PokemonSkillTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54D3F4791C8617B300264BFC /* PokemonSkillTableViewCell.swift */; };
 		A803DF128E99220716AAC09E /* Pods_rvalerPokemon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 233A72490D8DE3875E6E90C1 /* Pods_rvalerPokemon.framework */; };
 /* End PBXBuildFile section */
 
@@ -130,6 +131,7 @@
 		54D2276B1C85238100933BA6 /* HomeTrainerTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeTrainerTableViewCell.swift; sourceTree = "<group>"; };
 		54D2276D1C85257500933BA6 /* HomePokemonTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomePokemonTableViewCell.swift; sourceTree = "<group>"; };
 		54D2276F1C85269A00933BA6 /* PokemonDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PokemonDetailsViewController.swift; sourceTree = "<group>"; };
+		54D3F4791C8617B300264BFC /* PokemonSkillTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PokemonSkillTableViewCell.swift; sourceTree = "<group>"; };
 		79BEDDB4ACF4024DF41CA36E /* Pods-rvalerPokemon.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-rvalerPokemon.debug.xcconfig"; path = "Pods/Target Support Files/Pods-rvalerPokemon/Pods-rvalerPokemon.debug.xcconfig"; sourceTree = "<group>"; };
 		B7A33339208F8A69C67196DC /* Pods-rvalerPokemon.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-rvalerPokemon.release.xcconfig"; path = "Pods/Target Support Files/Pods-rvalerPokemon/Pods-rvalerPokemon.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -193,6 +195,7 @@
 				54D2276F1C85269A00933BA6 /* PokemonDetailsViewController.swift */,
 				54D2275F1C85202D00933BA6 /* LoginViewController.swift */,
 				54ADA4761C84D50F00A112EE /* AppDelegate.swift */,
+				54D3F4791C8617B300264BFC /* PokemonSkillTableViewCell.swift */,
 				54ADA47A1C84D50F00A112EE /* Main.storyboard */,
 				54ADA47D1C84D50F00A112EE /* Assets.xcassets */,
 				54ADA47F1C84D50F00A112EE /* LaunchScreen.storyboard */,
@@ -495,6 +498,7 @@
 				54D2276A1C8522DC00933BA6 /* HomeTableViewController.swift in Sources */,
 				54D2276E1C85257500933BA6 /* HomePokemonTableViewCell.swift in Sources */,
 				54D227601C85202D00933BA6 /* LoginViewController.swift in Sources */,
+				54D3F47A1C8617B300264BFC /* PokemonSkillTableViewCell.swift in Sources */,
 				54D2276C1C85238100933BA6 /* HomeTrainerTableViewCell.swift in Sources */,
 				54ADA4771C84D50F00A112EE /* AppDelegate.swift in Sources */,
 				54D227701C85269A00933BA6 /* PokemonDetailsViewController.swift in Sources */,
