@@ -27,17 +27,15 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func actionLoginUser(sender: AnyObject) {
-//        guard let username = self.txtUsername.text, password = self.txtPassword.text where username != "" && password != "" else{
-//            print("Please fill username and password!")
-//            return
-//        }
+        guard let username = self.txtUsername.text, password = self.txtPassword.text where username != "" && password != "" else{
+            print("Please fill username and password!")
+            return
+        }
         
         let params = [
-            "user" : "ash",
-            "password" : "mistyS2"
+            "user" : username,
+            "password" : password
         ]
-        
-//        print(params)
         
         Alamofire.request(.GET, "http://server03.local:60080/login", parameters: params, encoding: .URL).responseJSON { (result) -> Void in
 
@@ -45,12 +43,10 @@ class LoginViewController: UIViewController {
                 let json = JSON(data: jsonData)
                 
                 if json["response"] == "true" {
-                    
                     self.performSegueWithIdentifier("segueFromLoginToHome", sender: jsonData)
                 } else {
                     print("Bad login")
                 }
-                
             }
         }
     }
@@ -60,7 +56,6 @@ class LoginViewController: UIViewController {
         let nav = segue.destinationViewController as! UINavigationController
         let destinationVC = nav.topViewController as! HomeTableViewController
         
-    
         if let data = sender as? NSData {
             destinationVC.jsonData = data
         }

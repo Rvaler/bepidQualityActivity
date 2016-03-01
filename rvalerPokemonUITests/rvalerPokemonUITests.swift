@@ -28,9 +28,61 @@ class rvalerPokemonUITests: XCTestCase {
         super.tearDown()
     }
     
-    func testExample() {
-        // Use recording to get started writing UI tests.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+    func testLoginSuccessful(){
+        let app = XCUIApplication()
+        let usernameTextField = app.textFields["username"]
+        usernameTextField.tap()
+        usernameTextField.typeText("ash")
+        
+        let passwordTextField = app.textFields["password"]
+        passwordTextField.tap()
+        passwordTextField.typeText("mistyS2")
+        app.buttons["Login"].tap()
     }
     
+    func testLoginFailed(){
+        let app = XCUIApplication()
+        let usernameTextField = app.textFields["username"]
+        usernameTextField.tap()
+        usernameTextField.typeText("Layla")
+        
+        let passwordTextField = app.textFields["password"]
+        passwordTextField.tap()
+        passwordTextField.typeText("mistyS2")
+        app.buttons["Login"].tap()
+    }
+    
+    func testPokemonData(){
+        let app = XCUIApplication()
+        let usernameTextField = app.textFields["username"]
+        usernameTextField.tap()
+        usernameTextField.typeText("ash")
+        
+        let passwordTextField = app.textFields["password"]
+        passwordTextField.tap()
+        passwordTextField.typeText("mistyS2")
+        app.buttons["Login"].tap()
+        
+        // home view has 6 pokemons + 1 info about trainer
+        XCTAssert(app.tables.elementBoundByIndex(0).cells.count == 7)
+    }
+    
+    func testPokemonSkillsContent(){
+        let app = XCUIApplication()
+        let usernameTextField = app.textFields["username"]
+        usernameTextField.tap()
+        usernameTextField.typeText("ash")
+        
+        let passwordTextField = app.textFields["password"]
+        passwordTextField.tap()
+        passwordTextField.typeText("mistyS2")
+        app.buttons["Login"].tap()
+        
+        let tablesQuery = app.tables
+        tablesQuery.staticTexts["Ash Ketchum"].swipeUp()
+        tablesQuery.staticTexts["Primeape"].tap()
+        
+        // every pokemon has 4 skills
+        XCTAssert(app.tables.elementBoundByIndex(0).cells.count == 4)
+    }
 }

@@ -33,4 +33,7 @@ class rvalerPokemonTests: XCTestCase {
         }
     }
     
+    func testLoginSuccessful(){
+        
+    }
 }
