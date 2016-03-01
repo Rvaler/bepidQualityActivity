@@ -15,6 +15,8 @@ class HomeTrainerTableViewCell: UITableViewCell {
     @IBOutlet weak var lblAge: UILabel!
     @IBOutlet weak var lblTown: UILabel!
     
+    var trainer : NSDictionary?
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

@@ -18,23 +18,6 @@ class LoginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        let params = [
-            "user" : "ash",
-            "password" : "mistyS2"
-        ]
-        
-//        Alamofire.request(.GET, "http://server03.local:60080/login", parameters: params, encoding: .URL).responseJSON { (result) -> Void in
-//            print(result)
-//            
-//            let json = JSON(data: (result.data! ))
-//            print(json)
-//            if let userName = json["data"]["name"].string {
-//                //Now you got your value
-//                print(userName)
-//            }
-//        }
-        
         // Do any additional setup after loading the view.
     }
 
@@ -44,27 +27,47 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func actionLoginUser(sender: AnyObject) {
-//        guard let username = self.txtUsername, password = self.txtPassword.text where username != "" && password != "" else{
+//        guard let username = self.txtUsername.text, password = self.txtPassword.text where username != "" && password != "" else{
 //            print("Please fill username and password!")
 //            return
 //        }
         
-//        let params = [
-//            "user" : username,
-//            "password" : password
-//        ]
+        let params = [
+            "user" : "ash",
+            "password" : "mistyS2"
+        ]
         
-//        Alamofire.request(.GET, "http://server03.local:60080/login", parameters: params, encoding: .URL).responseJSON { (result) -> Void in
-//            print(result)
-//            
+//        print(params)
+        
+        Alamofire.request(.GET, "http://server03.local:60080/login", parameters: params, encoding: .URL).responseJSON { (result) -> Void in
+
+            if let jsonData = result.data {
+                let json = JSON(data: jsonData)
+                
+                if json["response"] == "true" {
+                    
+                    self.performSegueWithIdentifier("segueFromLoginToHome", sender: jsonData)
+                } else {
+                    print("Bad login")
+                }
+                
+            }
+
 //            let json = JSON(data: (result.data! ))
-//            print(json)
+////            print(json)
 //            if let userName = json["data"]["name"].string {
 //                //Now you got your value
 //                print(userName)
 //            }
-//        }
-        self.performSegueWithIdentifier("segueFromLoginToHome", sender: nil)
+        }
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        
+        let destinationVC = segue.destinationViewController as! HomeTableViewController
+        if let data = sender as? NSData {
+            destinationVC.jsonData = data
+        }
     }
 
     /*

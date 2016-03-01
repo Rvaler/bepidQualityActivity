@@ -7,12 +7,33 @@
 //
 
 import UIKit
+import SwiftyJSON
 
 class HomeTableViewController: UITableViewController {
+    
+    var jsonData : NSData? {
+        didSet {
+            if let data = jsonData {
+                self.json = JSON(data: data)
+            }
+        }
+    }
 
+    var json : JSON? {
+        didSet{
+            if let json = self.json {
+                self.onHandPokemons = json["data"]["onHandPokemons"]
+            }
+        }
+    }
+    
+    var onHandPokemons : JSON = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-//test
+    
+//        print(self.json!["data"]["onHandPokemons"])
+//        print(self.json!["data"]["onHandPokemons"][0])
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -28,8 +49,7 @@ class HomeTableViewController: UITableViewController {
     // MARK: - Table view data source
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 4
+        return self.onHandPokemons.count + 1
     }
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
@@ -40,13 +60,23 @@ class HomeTableViewController: UITableViewController {
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
-        var cell : UITableViewCell
         switch indexPath.row {
         case 0:
-            cell = tableView.dequeueReusableCellWithIdentifier("homeTrainer", forIndexPath: indexPath) as! HomeTrainerTableViewCell
+            let cell = tableView.dequeueReusableCellWithIdentifier("homeTrainer", forIndexPath: indexPath) as! HomeTrainerTableViewCell
+            if let json = self.json {
+                cell.lblAge.text = String(json["data"]["age"].number!)
+                cell.lblName.text = json["data"]["name"].string
+                cell.lblTown.text = json["data"]["town"].string
+                
+                if let url = NSURL(string: json["data"]["photo"].string!), data = NSData(contentsOfURL: url) {
+                    cell.imgPhoto.image = UIImage(data: data)
+                }
+            }
             return cell
+            
         default:
-            cell = tableView.dequeueReusableCellWithIdentifier("homePokemon", forIndexPath: indexPath) as! HomePokemonTableViewCell
+            let cell = tableView.dequeueReusableCellWithIdentifier("homePokemon", forIndexPath: indexPath) as! HomePokemonTableViewCell
+            
             return cell
         }
     }
@@ -54,7 +84,7 @@ class HomeTableViewController: UITableViewController {
     override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         switch indexPath.row {
         case 0:
-            return 171
+            return 187
         default:
             return 251
         }
