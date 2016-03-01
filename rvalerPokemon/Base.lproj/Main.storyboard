@@ -51,12 +51,12 @@
                         <outlet property="btnLogin" destination="VVm-3t-Dhs" id="fOD-VL-aEM"/>
                         <outlet property="txtPassword" destination="xOA-gg-yTq" id="smu-IK-RZ8"/>
                         <outlet property="txtUsername" destination="fur-VQ-OAw" id="aaB-JE-GYG"/>
-                        <segue destination="XVk-TY-CvN" kind="presentation" identifier="segueFromLoginToHome" id="pRi-1J-ybf"/>
+                        <segue destination="jeO-EG-7Iz" kind="presentation" identifier="segueFromLoginToHome" id="pRi-1J-ybf"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="665" y="311"/>
+            <point key="canvasLocation" x="1210" y="311"/>
         </scene>
         <!--Home Table View Controller-->
         <scene sceneID="MHO-rG-tHg">
@@ -68,7 +68,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="homeTrainer" rowHeight="187" id="zG6-Rj-xWm" customClass="HomeTrainerTableViewCell" customModule="rvalerPokemon" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="600" height="187"/>
+                                <rect key="frame" x="0.0" y="92" width="600" height="187"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="zG6-Rj-xWm" id="zUm-rs-1fo">
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="187"/>
@@ -119,7 +119,7 @@
                                 </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="homePokemon" rowHeight="251" id="blh-ZM-GJg" customClass="HomePokemonTableViewCell" customModule="rvalerPokemon" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="215" width="600" height="251"/>
+                                <rect key="frame" x="0.0" y="279" width="600" height="251"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="blh-ZM-GJg" id="dv5-yc-fpF">
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="251"/>
@@ -210,7 +210,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="A4p-Dn-LJX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2248" y="311"/>
+            <point key="canvasLocation" x="3060" y="311"/>
         </scene>
         <!--Pokemon Details View Controller-->
         <scene sceneID="8sE-4v-aR3">
@@ -280,7 +280,25 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jJz-xk-oTt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3023" y="311"/>
+            <point key="canvasLocation" x="3835" y="311"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="pbG-It-HpP">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="jeO-EG-7Iz" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Bfo-f4-cTP">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="XVk-TY-CvN" kind="relationship" relationship="rootViewController" id="2lj-j0-kaF"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Yni-Bw-DcC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2248" y="311"/>
         </scene>
     </scenes>
 </document>

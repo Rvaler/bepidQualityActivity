@@ -7,12 +7,16 @@
 //
 
 import UIKit
+import SwiftyJSON
 
 class PokemonDetailsViewController: UIViewController {
 
+    var pokemon : JSON?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        print(pokemon)
         // Do any additional setup after loading the view.
     }
 

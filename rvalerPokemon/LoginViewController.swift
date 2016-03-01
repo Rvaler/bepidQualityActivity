@@ -52,19 +52,15 @@ class LoginViewController: UIViewController {
                 }
                 
             }
-
-//            let json = JSON(data: (result.data! ))
-////            print(json)
-//            if let userName = json["data"]["name"].string {
-//                //Now you got your value
-//                print(userName)
-//            }
         }
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         
-        let destinationVC = segue.destinationViewController as! HomeTableViewController
+        let nav = segue.destinationViewController as! UINavigationController
+        let destinationVC = nav.topViewController as! HomeTableViewController
+        
+    
         if let data = sender as? NSData {
             destinationVC.jsonData = data
         }

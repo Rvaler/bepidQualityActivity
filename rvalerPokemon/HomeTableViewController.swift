@@ -31,14 +31,6 @@ class HomeTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-    
-//        print(self.json!["data"]["onHandPokemons"])
-//        print(self.json!["data"]["onHandPokemons"][0])
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
 
     override func didReceiveMemoryWarning() {
@@ -54,7 +46,7 @@ class HomeTableViewController: UITableViewController {
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         if indexPath.row != 0{
-            self.performSegueWithIdentifier("segueFromHomeToPokemonDetails", sender: self)
+            self.performSegueWithIdentifier("segueFromHomeToPokemonDetails", sender: indexPath.row - 1)
         }
     }
 
@@ -64,7 +56,7 @@ class HomeTableViewController: UITableViewController {
         case 0:
             let cell = tableView.dequeueReusableCellWithIdentifier("homeTrainer", forIndexPath: indexPath) as! HomeTrainerTableViewCell
             if let json = self.json {
-                cell.lblAge.text = String(json["data"]["age"].number!)
+                cell.lblAge.text = String(json["data"]["age"].numberValue)
                 cell.lblName.text = json["data"]["name"].string
                 cell.lblTown.text = json["data"]["town"].string
                 
@@ -75,8 +67,22 @@ class HomeTableViewController: UITableViewController {
             return cell
             
         default:
-            let cell = tableView.dequeueReusableCellWithIdentifier("homePokemon", forIndexPath: indexPath) as! HomePokemonTableViewCell
             
+            let cell = tableView.dequeueReusableCellWithIdentifier("homePokemon", forIndexPath: indexPath) as! HomePokemonTableViewCell
+            let pokemon = self.onHandPokemons[indexPath.row - 1]
+            
+            cell.lblName.text = pokemon["name"].string
+            cell.lblNumber.text = String(pokemon["number"].numberValue)
+            cell.lblStatus.text = pokemon["status"].string
+            cell.lblTypeOne.text = pokemon["type1"].string
+            cell.lblTypeTwo.text = pokemon["type2"].string
+            
+            if let urlString = pokemon["icon"].string, url = NSURL(string: urlString), data = NSData(contentsOfURL: url) {
+                cell.imgIcon.image = UIImage(data: data)
+            }
+            if let urlString = pokemon["image"].string, url = NSURL(string: urlString), data = NSData(contentsOfURL: url) {
+                cell.imgImage.image = UIImage(data: data)
+            }
             return cell
         }
     }
@@ -87,6 +93,13 @@ class HomeTableViewController: UITableViewController {
             return 187
         default:
             return 251
+        }
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        let destinationVC = segue.destinationViewController as! PokemonDetailsViewController
+        if let indexRow = sender as? Int {
+            destinationVC.pokemon = self.onHandPokemons[indexRow]
         }
     }
 
