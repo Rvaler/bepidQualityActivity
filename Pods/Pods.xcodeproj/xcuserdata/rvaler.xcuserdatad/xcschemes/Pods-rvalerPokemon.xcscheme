@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '89DDAABD096910099C1DC6A8'
+               BlueprintIdentifier = '1C0A3C4A4C35D2D319424903'
                BlueprintName = 'Pods-rvalerPokemon'
                ReferencedContainer = 'container:Pods.xcodeproj'
                BuildableName = 'Pods_rvalerPokemon.framework'>

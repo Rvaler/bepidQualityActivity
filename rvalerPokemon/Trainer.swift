@@ -30,17 +30,4 @@ class Trainer : NSObject {
         }
     }
     
-    static func loginTrainer(username: String, password: String) -> Bool {
-        let params = [
-            "user" : username,
-            "password" : password
-        ]
-        
-        Alamofire.request(.GET, "http://server03.local:60080/login", parameters: params, encoding: .URL).responseJSON { (result) -> Void in
-            print("login")
-            print(result)
-        }
-        return true
-    }
-    
 }

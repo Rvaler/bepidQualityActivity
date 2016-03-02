@@ -23,6 +23,24 @@ class rvalerPokemonTests: XCTestCase {
         super.tearDown()
     }
     
+    func testLoginTrue(){
+        let expect = expectationWithDescription("Login")
+        
+        AccountManager.sharedInstace.login("ash", password: "mistyS2") { (result) -> Void in
+            if result {
+                XCTAssert(result == true, "Login efetuated")
+            } else {
+                XCTAssert(result == false, "Login not efetuated")
+            }
+            
+            expect.fulfill()
+        }
+        
+        waitForExpectationsWithTimeout(10.0) { (error: NSError?) -> Void in
+            print(error)
+        }
+    }
+    
     func testLoginFailed() {
         let exp = expectationWithDescription("waitLogin")
         Alamofire.request(.GET, "http://server03.local:60080/login?user=uuu&password=666", parameters: nil, encoding: .URL).responseJSON { (result) -> Void in

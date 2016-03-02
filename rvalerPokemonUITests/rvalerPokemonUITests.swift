@@ -85,4 +85,43 @@ class rvalerPokemonUITests: XCTestCase {
         // every pokemon has 4 skills
         XCTAssert(app.tables.elementBoundByIndex(0).cells.count == 4)
     }
+    
+    func testPokemonSkills(){
+        
+        let app = XCUIApplication()
+        let usernameTextField = app.textFields["username"]
+        usernameTextField.tap()
+        usernameTextField.typeText("ash")
+        
+        let passwordTextField = app.textFields["password"]
+        passwordTextField.tap()
+        passwordTextField.typeText("mistyS2")
+        app.buttons["Login"].tap()
+        
+        let tablesQuery = app.tables
+        tablesQuery.staticTexts["Pikachu"].tap()
+        app.staticTexts["276"].swipeUp()
+        
+        let backButton = app.navigationBars["rvalerPokemon.PokemonDetailsView"].childrenMatchingType(.Button).matchingIdentifier("Back").elementBoundByIndex(0)
+        backButton.tap()
+   
+        tablesQuery.staticTexts["Charizard"].tap()
+        backButton.tap()
+        
+        
+//        
+//        tablesQuery.staticTexts["Bulbasaur"].tap()
+//        backButton.tap()
+//        
+//        tablesQuery.staticTexts["Squartle"].tap()
+//        backButton.tap()
+//        // Failed to find matching element please file bug (bugreport.apple.com) and provide output from Console.app
+//        tablesQuery.staticTexts["Primeape"].tap()
+//        backButton.tap()
+//        // Failed to find matching element please file bug (bugreport.apple.com) and provide output from Console.app
+//        tablesQuery.staticTexts["Snorlax"].tap()
+//        backButton.tap()
+        
+
+    }
 }

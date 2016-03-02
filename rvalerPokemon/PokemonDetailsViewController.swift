@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import SwiftyJSON
 
 class PokemonDetailsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
@@ -37,11 +36,6 @@ class PokemonDetailsViewController: UIViewController, UITableViewDataSource, UIT
         
         // Do any additional setup after loading the view.
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
     
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -59,11 +53,7 @@ class PokemonDetailsViewController: UIViewController, UITableViewDataSource, UIT
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if let pokemon = self.pokemon {
-            return (pokemon.skills?.count)!
-        } else {
-            return 0
-        }
+        return pokemon!.skills!.count
     }
 
     /*
