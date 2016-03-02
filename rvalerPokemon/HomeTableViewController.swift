@@ -11,23 +11,7 @@ import SwiftyJSON
 
 class HomeTableViewController: UITableViewController {
     
-    var jsonData : NSData? {
-        didSet {
-            if let data = jsonData {
-                self.json = JSON(data: data)
-            }
-        }
-    }
-
-    var json : JSON? {
-        didSet{
-            if let json = self.json {
-                self.onHandPokemons = json["data"]["onHandPokemons"]
-            }
-        }
-    }
-    
-    var onHandPokemons : JSON = []
+    var pokemons : [Pokemon] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,7 +25,7 @@ class HomeTableViewController: UITableViewController {
     // MARK: - Table view data source
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.onHandPokemons.count + 1
+        return AccountManager.sharedInstace.trainer.onHandPokemons!.count + 1
     }
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
@@ -55,32 +39,33 @@ class HomeTableViewController: UITableViewController {
         switch indexPath.row {
         case 0:
             let cell = tableView.dequeueReusableCellWithIdentifier("homeTrainer", forIndexPath: indexPath) as! HomeTrainerTableViewCell
-            if let json = self.json {
-                cell.lblAge.text = String(json["data"]["age"].numberValue)
-                cell.lblName.text = json["data"]["name"].string
-                cell.lblTown.text = json["data"]["town"].string
+            if let trainer = AccountManager.sharedInstace.trainer {
+                cell.lblAge.text = String(trainer.age)
+                cell.lblName.text = trainer.name
+                cell.lblTown.text = trainer.town
                 
-                if let url = NSURL(string: json["data"]["photo"].string!), data = NSData(contentsOfURL: url) {
+                if let url = NSURL(string: trainer.photo), data = NSData(contentsOfURL: url) {
                     cell.imgPhoto.image = UIImage(data: data)
                 }
             }
+            
             return cell
             
         default:
             
             let cell = tableView.dequeueReusableCellWithIdentifier("homePokemon", forIndexPath: indexPath) as! HomePokemonTableViewCell
-            let pokemon = self.onHandPokemons[indexPath.row - 1]
+            let pokemon = AccountManager.sharedInstace.trainer.onHandPokemons![indexPath.row - 1]
             
-            cell.lblName.text = pokemon["name"].string
-            cell.lblNumber.text = String(pokemon["number"].numberValue)
-            cell.lblStatus.text = pokemon["status"].string
-            cell.lblTypeOne.text = pokemon["type1"].string
-            cell.lblTypeTwo.text = pokemon["type2"].string
             
-            if let urlString = pokemon["icon"].string, url = NSURL(string: urlString), data = NSData(contentsOfURL: url) {
+            cell.lblName.text = pokemon.name
+            cell.lblNumber.text = String(pokemon.number)
+            cell.lblTypeOne.text = pokemon.type1
+            cell.lblTypeTwo.text = pokemon.type2
+            
+            if let urlString = pokemon.icon, url = NSURL(string: urlString), data = NSData(contentsOfURL: url) {
                 cell.imgIcon.image = UIImage(data: data)
             }
-            if let urlString = pokemon["image"].string, url = NSURL(string: urlString), data = NSData(contentsOfURL: url) {
+            if let urlString = pokemon.image, url = NSURL(string: urlString), data = NSData(contentsOfURL: url) {
                 cell.imgImage.image = UIImage(data: data)
             }
             return cell
@@ -99,7 +84,7 @@ class HomeTableViewController: UITableViewController {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         let destinationVC = segue.destinationViewController as! PokemonDetailsViewController
         if let indexRow = sender as? Int {
-            destinationVC.pokemon = self.onHandPokemons[indexRow]
+            destinationVC.pokemon = AccountManager.sharedInstace.trainer.onHandPokemons![indexRow - 1]
         }
     }
 

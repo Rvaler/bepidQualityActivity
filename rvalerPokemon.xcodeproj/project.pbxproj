@@ -21,6 +21,11 @@
 		54D2276E1C85257500933BA6 /* HomePokemonTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54D2276D1C85257500933BA6 /* HomePokemonTableViewCell.swift */; };
 		54D227701C85269A00933BA6 /* PokemonDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54D2276F1C85269A00933BA6 /* PokemonDetailsViewController.swift */; };
 		54D3F47A1C8617B300264BFC /* PokemonSkillTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54D3F4791C8617B300264BFC /* PokemonSkillTableViewCell.swift */; };
+		54E7C3C41C8654250044800B /* Trainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54E7C3C31C8654250044800B /* Trainer.swift */; };
+		54E7C3C61C8655390044800B /* Pokemon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54E7C3C51C8655390044800B /* Pokemon.swift */; };
+		54E7C3C81C8656370044800B /* Status.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54E7C3C71C8656370044800B /* Status.swift */; };
+		54E7C3CA1C8657470044800B /* Skill.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54E7C3C91C8657470044800B /* Skill.swift */; };
+		54E7C3CC1C865D570044800B /* AccountManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54E7C3CB1C865D570044800B /* AccountManager.swift */; };
 		A803DF128E99220716AAC09E /* Pods_rvalerPokemon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 233A72490D8DE3875E6E90C1 /* Pods_rvalerPokemon.framework */; };
 /* End PBXBuildFile section */
 
@@ -132,6 +137,11 @@
 		54D2276D1C85257500933BA6 /* HomePokemonTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomePokemonTableViewCell.swift; sourceTree = "<group>"; };
 		54D2276F1C85269A00933BA6 /* PokemonDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PokemonDetailsViewController.swift; sourceTree = "<group>"; };
 		54D3F4791C8617B300264BFC /* PokemonSkillTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PokemonSkillTableViewCell.swift; sourceTree = "<group>"; };
+		54E7C3C31C8654250044800B /* Trainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Trainer.swift; sourceTree = "<group>"; };
+		54E7C3C51C8655390044800B /* Pokemon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Pokemon.swift; sourceTree = "<group>"; };
+		54E7C3C71C8656370044800B /* Status.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Status.swift; sourceTree = "<group>"; };
+		54E7C3C91C8657470044800B /* Skill.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Skill.swift; sourceTree = "<group>"; };
+		54E7C3CB1C865D570044800B /* AccountManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountManager.swift; sourceTree = "<group>"; };
 		79BEDDB4ACF4024DF41CA36E /* Pods-rvalerPokemon.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-rvalerPokemon.debug.xcconfig"; path = "Pods/Target Support Files/Pods-rvalerPokemon/Pods-rvalerPokemon.debug.xcconfig"; sourceTree = "<group>"; };
 		B7A33339208F8A69C67196DC /* Pods-rvalerPokemon.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-rvalerPokemon.release.xcconfig"; path = "Pods/Target Support Files/Pods-rvalerPokemon/Pods-rvalerPokemon.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -200,6 +210,7 @@
 				54ADA47D1C84D50F00A112EE /* Assets.xcassets */,
 				54ADA47F1C84D50F00A112EE /* LaunchScreen.storyboard */,
 				54ADA4821C84D50F00A112EE /* Info.plist */,
+				54E7C3BC1C8653D70044800B /* Model */,
 			);
 			path = rvalerPokemon;
 			sourceTree = "<group>";
@@ -234,6 +245,18 @@
 				54ADA4BB1C84D57100A112EE /* Alamofire.framework */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		54E7C3BC1C8653D70044800B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				54E7C3C31C8654250044800B /* Trainer.swift */,
+				54E7C3C51C8655390044800B /* Pokemon.swift */,
+				54E7C3C71C8656370044800B /* Status.swift */,
+				54E7C3C91C8657470044800B /* Skill.swift */,
+				54E7C3CB1C865D570044800B /* AccountManager.swift */,
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 		586FEA7B704BDE6D4448F4AE /* Pods */ = {
@@ -496,12 +519,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				54D2276A1C8522DC00933BA6 /* HomeTableViewController.swift in Sources */,
+				54E7C3C81C8656370044800B /* Status.swift in Sources */,
 				54D2276E1C85257500933BA6 /* HomePokemonTableViewCell.swift in Sources */,
 				54D227601C85202D00933BA6 /* LoginViewController.swift in Sources */,
 				54D3F47A1C8617B300264BFC /* PokemonSkillTableViewCell.swift in Sources */,
 				54D2276C1C85238100933BA6 /* HomeTrainerTableViewCell.swift in Sources */,
+				54E7C3C61C8655390044800B /* Pokemon.swift in Sources */,
+				54E7C3C41C8654250044800B /* Trainer.swift in Sources */,
 				54ADA4771C84D50F00A112EE /* AppDelegate.swift in Sources */,
+				54E7C3CA1C8657470044800B /* Skill.swift in Sources */,
 				54D227701C85269A00933BA6 /* PokemonDetailsViewController.swift in Sources */,
+				54E7C3CC1C865D570044800B /* AccountManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

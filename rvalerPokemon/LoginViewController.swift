@@ -27,37 +27,20 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func actionLoginUser(sender: AnyObject) {
-        guard let username = self.txtUsername.text, password = self.txtPassword.text where username != "" && password != "" else{
-            print("Please fill username and password!")
-            return
-        }
+//        guard let username = self.txtUsername.text, password = self.txtPassword.text where username != "" && password != "" else{
+//            print("Please fill username and password!")
+//            return
+//        }
         
         let params = [
-            "user" : username,
-            "password" : password
+            "user" : "ash",
+            "password" : "mistyS2"
         ]
         
-        Alamofire.request(.GET, "http://server03.local:60080/login", parameters: params, encoding: .URL).responseJSON { (result) -> Void in
-
-            if let jsonData = result.data {
-                let json = JSON(data: jsonData)
-                
-                if json["response"] == "true" {
-                    self.performSegueWithIdentifier("segueFromLoginToHome", sender: jsonData)
-                } else {
-                    print("Bad login")
-                }
+        AccountManager.sharedInstace.login("ash", password: "mistyS2") { (result) -> Void in
+            if result {
+                self.performSegueWithIdentifier("segueFromLoginToHome", sender: self)
             }
-        }
-    }
-    
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        
-        let nav = segue.destinationViewController as! UINavigationController
-        let destinationVC = nav.topViewController as! HomeTableViewController
-        
-        if let data = sender as? NSData {
-            destinationVC.jsonData = data
         }
     }
 
