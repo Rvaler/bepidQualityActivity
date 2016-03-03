@@ -21,12 +21,18 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func actionLoginUser(sender: AnyObject) {
-        guard let _username = self.txtUsername.text, _password = self.txtPassword.text where _username != "" && _password != "" else {
-            print("Please fill username and password!")
-            return
-        }
+//        guard let _username = self.txtUsername.text, _password = self.txtPassword.text where _username != "" && _password != "" else {
+//            print("Please fill username and password!")
+//            return
+//        }
+//        
+//        AccountManager.sharedInstace.login(_username, password: _password) { (result) -> Void in
+//            if result {
+//                self.performSegueWithIdentifier("segueFromLoginToHome", sender: self)
+//            }
+//        }
         
-        AccountManager.sharedInstace.login(_username, password: _password) { (result) -> Void in
+        AccountManager.sharedInstace.login("ash", password: "mistyS2") { (result) -> Void in
             if result {
                 self.performSegueWithIdentifier("segueFromLoginToHome", sender: self)
             }

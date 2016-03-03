@@ -51,7 +51,6 @@ class HomeTableViewController: UITableViewController {
             let cell = tableView.dequeueReusableCellWithIdentifier("homePokemon", forIndexPath: indexPath) as! HomePokemonTableViewCell
             let pokemon = AccountManager.sharedInstace.trainer.onHandPokemons![indexPath.row - 1]
             
-            
             cell.lblName.text = pokemon.name
             cell.lblNumber.text = String(pokemon.number)
             cell.lblTypeOne.text = pokemon.type1
@@ -60,9 +59,6 @@ class HomeTableViewController: UITableViewController {
             if let urlString = pokemon.icon, url = NSURL(string: urlString), data = NSData(contentsOfURL: url) {
                 cell.imgIcon.image = UIImage(data: data)
             }
-            if let urlString = pokemon.image, url = NSURL(string: urlString), data = NSData(contentsOfURL: url) {
-                cell.imgImage.image = UIImage(data: data)
-            }
             return cell
         }
     }
@@ -70,9 +66,9 @@ class HomeTableViewController: UITableViewController {
     override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         switch indexPath.row {
         case 0:
-            return 187
+            return 192
         default:
-            return 251
+            return 100
         }
     }
     

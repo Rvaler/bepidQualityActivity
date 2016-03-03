@@ -19,6 +19,8 @@ class HomeTrainerTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        self.imgPhoto.layer.cornerRadius = self.imgPhoto.frame.size.width / 2
+        self.imgPhoto.clipsToBounds = true
         // Initialization code
     }
 
