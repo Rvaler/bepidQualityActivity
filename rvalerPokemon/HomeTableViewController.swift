@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import SwiftyJSON
 
 class HomeTableViewController: UITableViewController {
     
@@ -35,7 +34,7 @@ class HomeTableViewController: UITableViewController {
         case 0:
             let cell = tableView.dequeueReusableCellWithIdentifier("homeTrainer", forIndexPath: indexPath) as! HomeTrainerTableViewCell
             if let trainer = AccountManager.sharedInstace.trainer {
-                cell.lblAge.text = String(trainer.age)
+                cell.lblAge.text = String(trainer.age) + " years"
                 cell.lblName.text = trainer.name
                 cell.lblTown.text = trainer.town
                 
@@ -52,7 +51,7 @@ class HomeTableViewController: UITableViewController {
             let pokemon = AccountManager.sharedInstace.trainer.onHandPokemons![indexPath.row - 1]
             
             cell.lblName.text = pokemon.name
-            cell.lblNumber.text = String(pokemon.number) + " years"
+            cell.lblNumber.text = String(pokemon.number)
             cell.lblTypeOne.text = pokemon.type1
             cell.lblTypeTwo.text = pokemon.type2
             
