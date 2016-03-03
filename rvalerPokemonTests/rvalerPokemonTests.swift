@@ -29,10 +29,22 @@ class rvalerPokemonTests: XCTestCase {
         AccountManager.sharedInstace.login("ash", password: "mistyS2") { (result) -> Void in
             if result {
                 XCTAssert(result == true, "Login efetuated")
-            } else {
+            }
+            expect.fulfill()
+        }
+        
+        waitForExpectationsWithTimeout(10.0) { (error: NSError?) -> Void in
+            print(error)
+        }
+    }
+    
+    func testLoginFalse(){
+        let expect = expectationWithDescription("Login")
+        
+        AccountManager.sharedInstace.login("err", password: "mistyS2") { (result) -> Void in
+            if result {
                 XCTAssert(result == false, "Login not efetuated")
             }
-            
             expect.fulfill()
         }
         

@@ -137,17 +137,11 @@
 		54ADA4751C84D50F00A112EE /* rvalerPokemon */ = {
 			isa = PBXGroup;
 			children = (
-				54D227691C8522DC00933BA6 /* HomeTableViewController.swift */,
-				54D2276B1C85238100933BA6 /* HomeTrainerTableViewCell.swift */,
-				54D2276D1C85257500933BA6 /* HomePokemonTableViewCell.swift */,
-				54D2276F1C85269A00933BA6 /* PokemonDetailsViewController.swift */,
-				54D2275F1C85202D00933BA6 /* LoginViewController.swift */,
 				54ADA4761C84D50F00A112EE /* AppDelegate.swift */,
-				54D3F4791C8617B300264BFC /* PokemonSkillTableViewCell.swift */,
-				54ADA47A1C84D50F00A112EE /* Main.storyboard */,
 				54ADA47D1C84D50F00A112EE /* Assets.xcassets */,
-				54ADA47F1C84D50F00A112EE /* LaunchScreen.storyboard */,
 				54ADA4821C84D50F00A112EE /* Info.plist */,
+				54E09C0E1C889A7F00F5FFD3 /* Controller */,
+				54E09C0D1C889A7400F5FFD3 /* View */,
 				54E7C3BC1C8653D70044800B /* Model */,
 			);
 			path = rvalerPokemon;
@@ -169,6 +163,28 @@
 				54ADA4981C84D50F00A112EE /* Info.plist */,
 			);
 			path = rvalerPokemonUITests;
+			sourceTree = "<group>";
+		};
+		54E09C0D1C889A7400F5FFD3 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				54ADA47A1C84D50F00A112EE /* Main.storyboard */,
+				54ADA47F1C84D50F00A112EE /* LaunchScreen.storyboard */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		54E09C0E1C889A7F00F5FFD3 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				54D3F4791C8617B300264BFC /* PokemonSkillTableViewCell.swift */,
+				54D227691C8522DC00933BA6 /* HomeTableViewController.swift */,
+				54D2276B1C85238100933BA6 /* HomeTrainerTableViewCell.swift */,
+				54D2276D1C85257500933BA6 /* HomePokemonTableViewCell.swift */,
+				54D2276F1C85269A00933BA6 /* PokemonDetailsViewController.swift */,
+				54D2275F1C85202D00933BA6 /* LoginViewController.swift */,
+			);
+			name = Controller;
 			sourceTree = "<group>";
 		};
 		54E7C3BC1C8653D70044800B /* Model */ = {
