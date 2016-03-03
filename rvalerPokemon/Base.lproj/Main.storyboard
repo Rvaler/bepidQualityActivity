@@ -18,19 +18,32 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fur-VQ-OAw">
-                                <rect key="frame" x="12" y="122" width="576" height="30"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="username" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fur-VQ-OAw">
+                                <rect key="frame" x="12" y="186" width="576" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xOA-gg-yTq">
-                                <rect key="frame" x="12" y="166" width="576" height="30"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="password" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xOA-gg-yTq">
+                                <rect key="frame" x="12" y="230" width="576" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocorrectionType="no"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" secureTextEntry="YES"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VVm-3t-Dhs">
-                                <rect key="frame" x="281" y="227" width="38" height="30"/>
-                                <state key="normal" title="Login"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pokemonLogo" translatesAutoresizingMaskIntoConstraints="NO" id="Bvm-hP-qKj">
+                                <rect key="frame" x="180" y="52" width="240" height="88"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="240" id="Ygj-pf-AOo"/>
+                                    <constraint firstAttribute="height" constant="88" id="cSq-F4-caM"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VVm-3t-Dhs">
+                                <rect key="frame" x="220" y="292" width="160" height="30"/>
+                                <color key="backgroundColor" red="0.098039215690000001" green="0.57254901960000004" blue="0.85882352939999995" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="160" id="YVH-xf-HU2"/>
+                                </constraints>
+                                <state key="normal" title="Login">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
                                 <connections>
                                     <action selector="actionLoginUser:" destination="BYZ-38-t0r" eventType="touchUpInside" id="3Iw-5c-LFu"/>
                                 </connections>
@@ -38,17 +51,27 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="VVm-3t-Dhs" firstAttribute="top" secondItem="xOA-gg-yTq" secondAttribute="bottom" constant="32" id="2Tp-sm-KM5"/>
                             <constraint firstItem="xOA-gg-yTq" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="12" id="4yf-ch-HLT"/>
                             <constraint firstItem="xOA-gg-yTq" firstAttribute="top" secondItem="fur-VQ-OAw" secondAttribute="bottom" constant="14" id="6Uh-Ze-CtK"/>
+                            <constraint firstItem="VVm-3t-Dhs" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Akz-uO-fWn"/>
                             <constraint firstAttribute="trailing" secondItem="xOA-gg-yTq" secondAttribute="trailing" constant="12" id="MC6-9Z-ifP"/>
-                            <constraint firstItem="fur-VQ-OAw" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="102" id="MNl-cT-knf"/>
+                            <constraint firstItem="fur-VQ-OAw" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="150" id="MNl-cT-knf"/>
                             <constraint firstItem="fur-VQ-OAw" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="12" id="Q9n-vm-uTx"/>
+                            <constraint firstItem="Bvm-hP-qKj" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="32" id="SdP-Z7-fEN"/>
+                            <constraint firstItem="Bvm-hP-qKj" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Uil-Cw-XBF"/>
+                            <constraint firstItem="fur-VQ-OAw" firstAttribute="top" secondItem="Bvm-hP-qKj" secondAttribute="bottom" constant="46" id="Xzc-QB-8Lc"/>
                             <constraint firstItem="fur-VQ-OAw" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="awr-Ww-GLx"/>
                             <constraint firstAttribute="trailing" secondItem="fur-VQ-OAw" secondAttribute="trailing" constant="12" id="cjb-ez-XzF"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="MNl-cT-knf"/>
+                            </mask>
+                        </variation>
                     </view>
                     <connections>
-                        <outlet property="btnLogin" destination="VVm-3t-Dhs" id="fOD-VL-aEM"/>
+                        <outlet property="btnLogin" destination="VVm-3t-Dhs" id="M4S-hZ-lKi"/>
                         <outlet property="txtPassword" destination="xOA-gg-yTq" id="smu-IK-RZ8"/>
                         <outlet property="txtUsername" destination="fur-VQ-OAw" id="aaB-JE-GYG"/>
                         <segue destination="jeO-EG-7Iz" kind="presentation" identifier="segueFromLoginToHome" id="pRi-1J-ybf"/>
@@ -71,7 +94,7 @@
                                 <rect key="frame" x="0.0" y="92" width="600" height="187"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="zG6-Rj-xWm" id="zUm-rs-1fo">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="186.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="187"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Age" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fUv-kQ-aDd">
@@ -122,7 +145,7 @@
                                 <rect key="frame" x="0.0" y="279" width="600" height="251"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="blh-ZM-GJg" id="dv5-yc-fpF">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="250.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="251"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Number" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wc9-qf-QR0">
@@ -259,7 +282,7 @@
                                         <rect key="frame" x="0.0" y="28" width="600" height="93"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="T0A-2z-kJU" id="1JE-GG-8zb">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="92.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="93"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l9v-5H-Qn4">
@@ -379,4 +402,7 @@
             <point key="canvasLocation" x="2248" y="311"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="pokemonLogo" width="1000" height="368"/>
+    </resources>
 </document>

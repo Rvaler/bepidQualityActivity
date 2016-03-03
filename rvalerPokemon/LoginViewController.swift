@@ -16,21 +16,17 @@ class LoginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        self.btnLogin.layer.cornerRadius = 2.0
+        
     }
     
     @IBAction func actionLoginUser(sender: AnyObject) {
-//        guard let username = self.txtUsername.text, password = self.txtPassword.text where username != "" && password != "" else{
-//            print("Please fill username and password!")
-//            return
-//        }
+        guard let _username = self.txtUsername.text, _password = self.txtPassword.text where _username != "" && _password != "" else {
+            print("Please fill username and password!")
+            return
+        }
         
-        let params = [
-            "user" : "ash",
-            "password" : "mistyS2"
-        ]
-        
-        AccountManager.sharedInstace.login("ash", password: "mistyS2") { (result) -> Void in
+        AccountManager.sharedInstace.login(_username, password: _password) { (result) -> Void in
             if result {
                 self.performSegueWithIdentifier("segueFromLoginToHome", sender: self)
             }
