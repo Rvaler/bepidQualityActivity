@@ -52,7 +52,7 @@ class HomeTableViewController: UITableViewController {
             let pokemon = AccountManager.sharedInstace.trainer.onHandPokemons![indexPath.row - 1]
             
             cell.lblName.text = pokemon.name
-            cell.lblNumber.text = String(pokemon.number)
+            cell.lblNumber.text = String(pokemon.number) + " years"
             cell.lblTypeOne.text = pokemon.type1
             cell.lblTypeTwo.text = pokemon.type2
             

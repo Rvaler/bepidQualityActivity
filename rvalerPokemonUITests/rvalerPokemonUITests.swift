@@ -34,9 +34,9 @@ class rvalerPokemonUITests: XCTestCase {
         usernameTextField.tap()
         usernameTextField.typeText("ash")
         
-        let passwordTextField = app.textFields["password"]
-        passwordTextField.tap()
-        passwordTextField.typeText("mistyS2")
+        let passwordSecureTextField = app.secureTextFields["password"]
+        passwordSecureTextField.tap()
+        passwordSecureTextField.typeText("mistyS2")
         app.buttons["Login"].tap()
     }
     
@@ -46,25 +46,38 @@ class rvalerPokemonUITests: XCTestCase {
         usernameTextField.tap()
         usernameTextField.typeText("Layla")
         
-        let passwordTextField = app.textFields["password"]
-        passwordTextField.tap()
-        passwordTextField.typeText("mistyS2")
+        let passwordSecureTextField = app.secureTextFields["password"]
+        passwordSecureTextField.tap()
+        passwordSecureTextField.typeText("mistyS2")
         app.buttons["Login"].tap()
     }
     
     func testPokemonData(){
+        
         let app = XCUIApplication()
         let usernameTextField = app.textFields["username"]
         usernameTextField.tap()
-        usernameTextField.typeText("ash")
+        usernameTextField.typeText("vai")
         
-        let passwordTextField = app.textFields["password"]
-        passwordTextField.tap()
-        passwordTextField.typeText("mistyS2")
+        let passwordSecureTextField = app.secureTextFields["password"]
+        passwordSecureTextField.tap()
+        passwordSecureTextField.typeText("ololo")
         app.buttons["Login"].tap()
         
-        // home view has 6 pokemons + 1 info about trainer
-        XCTAssert(app.tables.elementBoundByIndex(0).cells.count == 7)
+        
+//        
+//        let app = XCUIApplication()
+//        let usernameTextField = app.textFields["username"]
+//        usernameTextField.tap()
+//        usernameTextField.typeText("ash")
+//        
+//        let passwordTextField = app.textFields["password"]
+//        passwordTextField.tap()
+//        passwordTextField.typeText("mistyS2")
+//        app.buttons["Login"].tap()
+//        
+//        // home view has 6 pokemons + 1 info about trainer
+//        XCTAssert(app.tables.elementBoundByIndex(0).cells.count == 7)
     }
     
     func testPokemonSkillsContent(){
@@ -73,9 +86,9 @@ class rvalerPokemonUITests: XCTestCase {
         usernameTextField.tap()
         usernameTextField.typeText("ash")
         
-        let passwordTextField = app.textFields["password"]
-        passwordTextField.tap()
-        passwordTextField.typeText("mistyS2")
+        let passwordSecureTextField = app.secureTextFields["password"]
+        passwordSecureTextField.tap()
+        passwordSecureTextField.typeText("mistyS2")
         app.buttons["Login"].tap()
         
         let tablesQuery = app.tables
@@ -93,14 +106,13 @@ class rvalerPokemonUITests: XCTestCase {
         usernameTextField.tap()
         usernameTextField.typeText("ash")
         
-        let passwordTextField = app.textFields["password"]
-        passwordTextField.tap()
-        passwordTextField.typeText("mistyS2")
+        let passwordSecureTextField = app.secureTextFields["password"]
+        passwordSecureTextField.tap()
+        passwordSecureTextField.typeText("mistyS2")
         app.buttons["Login"].tap()
         
         let tablesQuery = app.tables
         tablesQuery.staticTexts["Pikachu"].tap()
-        app.staticTexts["276"].swipeUp()
         
         let backButton = app.navigationBars["rvalerPokemon.PokemonDetailsView"].childrenMatchingType(.Button).matchingIdentifier("Back").elementBoundByIndex(0)
         backButton.tap()
