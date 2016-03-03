@@ -17,6 +17,7 @@ class PokemonDetailsViewController: UIViewController, UITableViewDataSource, UIT
     @IBOutlet weak var lblSpAttack: UILabel!
     @IBOutlet weak var lblSpDefense: UILabel!
     @IBOutlet weak var lblSpeed: UILabel!
+    @IBOutlet weak var imgPokemonImg: UIImageView!
     
     var pokemon : Pokemon?
     
@@ -26,12 +27,16 @@ class PokemonDetailsViewController: UIViewController, UITableViewDataSource, UIT
         self.tableView.delegate = self
         
         if let pokemonStatus = self.pokemon?.status {
-            self.lblAttack.text = String(pokemonStatus.attack)
-            self.lblHealth.text = String(pokemonStatus.health)
-            self.lblDefense.text = String(pokemonStatus.defense)
-            self.lblSpAttack.text = String(pokemonStatus.spAttack)
-            self.lblSpDefense.text = String(pokemonStatus.defense)
-            self.lblSpeed.text = String(pokemonStatus.speed)
+            self.lblAttack.text = "Attack: " + String(pokemonStatus.attack)
+            self.lblHealth.text = "Health: " + String(pokemonStatus.health)
+            self.lblDefense.text = "Defense: " + String(pokemonStatus.defense)
+            self.lblSpAttack.text = "Sp Attack: " + String(pokemonStatus.spAttack)
+            self.lblSpDefense.text = "Sp Defense: " + String(pokemonStatus.spDefense)
+            self.lblSpeed.text = "Speed: " + String(pokemonStatus.speed)
+            
+            if let urlString = self.pokemon?.image, url = NSURL(string: urlString), data = NSData(contentsOfURL: url) {
+                self.imgPokemonImg.image = UIImage(data: data)
+            }
         }
         
         // Do any additional setup after loading the view.
@@ -50,6 +55,10 @@ class PokemonDetailsViewController: UIViewController, UITableViewDataSource, UIT
         }
 
         return cell
+    }
+    
+    func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return "Skills"
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
